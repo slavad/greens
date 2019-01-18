@@ -4,8 +4,8 @@ include ../mk_files/std_defs.mk
 
 include ../mk_files/common.mk
 
-$(TARGET): $(MODS) $(MOD_OBJS) $(SRC_OBJ) $(MAKES)
-	$(FF) $(LFLAGS) $(SRC_OBJ) $(MOD_OBJS) -o $(TARGET)
+$(TARGET): $(MODS) $(MOD_OBJS) $(LIB_OBJ) $(SRC_OBJ) $(MAKES)
+	$(FF) $(LFLAGS) $(SRC_OBJ) $(MOD_OBJS) $(LIB_OBJ) -o $(TARGET)
 
 .PHONY: clean
 
