@@ -5,7 +5,7 @@ MODS_DIR = $(DIR_PREFIX)/mods
 MAKES_DIR = $(DIR_PREFIX)/mk_files
 BUILD_DIR = $(DIR_PREFIX)/build
 
-FF = gfortran-mp-5
+FF = gfortran-mp-8
 FC = $(FF)
 
 CFLAGS = -O0 -w -I ../mods
