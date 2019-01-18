@@ -129,7 +129,7 @@ C
 C  Latest modification: March 19, 1990
 C
 C  Modified by: W. J. Cody
-C               Applied MathematiC CS Division
+C               Applied Mathematics Division
 C               Argonne National Laboratory
 C               Argonne, IL  60439
 C
