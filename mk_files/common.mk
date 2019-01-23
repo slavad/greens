@@ -6,5 +6,5 @@ all: $(TARGET)
 %.o: $(SRC_DIR)/%.f90 $(MODS) $(MOD_OBJ) $(MAKES) Makefile
 	$(FF) -c $(CFLAGS) $<
 
-%.o: $(LIB_DIR)/%.f $(MAKES) Makefile
+%.o: $(LIB_DIR)/%.f90 $(MAKES) Makefile
 	$(FF) -c $(CFLAGS) $<
