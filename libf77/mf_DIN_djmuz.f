@@ -1,3 +1,6 @@
+c Copyright (c) Dmitry Nagirner
+c This code is distributed under the MIT license.
+c ---------------------------------------------------------
 c the following 20 subprograms calculates Bessel function J_mu(z)
 c for arbitrary values of argument z>=0 and index mu>=0
 c program calculates the Bessel function J_mu(z)
@@ -11,7 +14,7 @@ c di13ml, di13pl, dj13ml, dj13pl, dk13gs and yj12gs calculate Bessel
 c functions with indices 1/3 and -1/3, dgam calculates gamma-function
 c dj0, dj0l, yjog and yj1g calculate the Bessel function J_0(z)
 c value of j_mu(z) can be obtained with the command a=djmuz(mu,z)
- 
+
       function djmuz(dmu,z)
       implicit real*8(a-h,o-z)
       data zlw,zup,dmul,dmup /1d1,1d2,3.5d0,4.5d0/
@@ -51,7 +54,7 @@ c value of j_mu(z) can be obtained with the command a=djmuz(mu,z)
       endif
       return
       end
- 
+
 c subprogram calculates the Bessel function J_mu(z) through series,
 c J_mu(z)=(1/gamma(mu+1))(z/2)^mu
 c sum_{n=0}^infty prod_{j=1}^n(-1)(z/2)^2/j(mu+j), 0<mu<=10, 0<=z<=5
@@ -88,7 +91,7 @@ c sum_{n=0}^infty prod_{j=1}^n(-1)(z/2)^2/j(mu+j), 0<mu<=10, 0<=z<=5
       djser=zsmu/dgmu*dmz
       return
       end
- 
+
 c subprogram calculates the Bessel function J_mu(z) through asymptotics,
 c J_mu(z)=sqrt(2/pi z)[cos(z-pi mu/2-pi/4)sum_{n=0}^infty a_{2n}+
 c sin(z-pi mu/2-pi/4)sum_{n=0}^infty a_{2n+1}]
@@ -125,7 +128,7 @@ c  calculation for z>=10, mu=<10
       djasp=dsqz*(czm*sume-szm*sumo)
  2001 format(1x,6d12.5)
       end
- 
+
 c subprogram calculates the Bessel function J_mu(z) by Cherry method:
 c          /K_{1/3}(nu*xi), v_{+}=arth(zeta)/zeta, 0=<zeta<1,
 c J_mu(z)=|     xi=nu*phi(v), phi(v)=v+phi_1(v)/mu^2+phi_2/mu^4,
@@ -179,7 +182,7 @@ c nu^2/mu^2=1+c_1/mu^2+c_2/mu^4, lambda^2/mu^2=1+gamma_1/mu^2+gamma_2/mu
       djchr=dsqrt(phi/zet/phi1)*wstar
       return
       end
- 
+
 c programm calculates functions phi_1(v) and phi_2(v) and their derivatives
 c for v_{+}, 0=<z<1, phi_j=y^{5/2}*p_j(y),phi_j'=y*p_{j1}(y),y=zeta^2
       subroutine ph01ln(z,z1,v,phi10n,phi11n,phi20n,phi21n)
@@ -187,12 +190,12 @@ c for v_{+}, 0=<z<1, phi_j=y^{5/2}*p_j(y),phi_j'=y*p_{j1}(y),y=zeta^2
       common /warh/ arthm(30)
       data c13 /0.3333333333333333d0/
       data zlim /0.9d0/
- 
+
       data aa1 /-0.438095238095238d-02/ ! -23/5250
       data aa2 /-0.612244897959184d-02/ ! -3/490
       data aa3 /-0.416666666666667d-01/ ! -1/24
       data aa4 / 0.568181818181818d-01/ ! 5/88
- 
+
       data ab10 / 0.131428571428571d-01/  ! 23/1750
       data ab11 /-0.457142857142857d-02/  ! 4/875
       data ab20 / 0.183673469387755d-01/  ! 9/490
@@ -200,7 +203,7 @@ c for v_{+}, 0=<z<1, phi_j=y^{5/2}*p_j(y),phi_j'=y*p_{j1}(y),y=zeta^2
       data ab30 / 0.125000000000000d+00/  ! 1/8
       data ab31 / 0.250000000000000d+00/  ! 1/4
       data ab40 /-0.170454545454545d+00/  ! -15/88
- 
+
       data ad10 /-0.789051184492001d-02/ ! -5224793159/662161500000
       data ad11 /-0.451342199750363d-03/ ! -24905119/55180125000
       data ad12 / 0.625772395405049d-03/ ! 3139109/5016375000
@@ -221,7 +224,7 @@ c for v_{+}, 0=<z<1, phi_j=y^{5/2}*p_j(y),phi_j'=y*p_{j1}(y),y=zeta^2
       data ad62 /-0.345312500000000d+00/ ! -221/640
       data ad70 / 0.192248774509804d+00/ ! 1255/6528
       data ad71 / 0.169270833333333d+00/ ! 65/384
- 
+
       data ae10 / 0.710146066042801d-01/ ! 5224793159/73573500000
       data ae11 / 0.430123547201098d-02/ ! 79114237/18393375000
       data ae12 /-0.419736981385961d-02/ ! -2339509/557375000
@@ -249,19 +252,19 @@ c for v_{+}, 0=<z<1, phi_j=y^{5/2}*p_j(y),phi_j'=y*p_{j1}(y),y=zeta^2
       data ae70 /-0.173023897058824d+01/ ! -3765/2176
       data ae71 /-0.159237132352941d+01/ ! -3465/2176
       data ae72 /-0.152343750000000d+01/ ! -195/128
- 
+
       data aav1 /-0.219047619047619d-01/ ! -23d0/1050d0
       data aav2 /-0.694444444444445d-01/ ! -5d0/72d0
       data aaz1 / 0.208333333333333d+00/ ! 5d0/24d0
       data aaz2 /-0.125000000000000d+00/ ! -1d0/8d0
       data aaz3 /-0.142857142857143d-01/ ! -1d0/70d0
- 
+
       data abv1 /-0.761904761904762d-02/ ! -4d0/525d0
       data abv2 / 0.694444444444445d-01/ ! 5d0/72d0
       data abz1 /-0.625000000000000d+00/ ! -5d0/8d0
       data abz2 / 0.750000000000000d+00/ ! 3d0/4d0
       data abz3 /-0.139285714285714d+00/ ! -39d0/280d0
- 
+
       data adv1 / 0.312886197702524d-02/ ! 3139109d0/1003275000d0
       data adv2 / 0.152116402116402d-02/ ! 23d0/15120d0
       data adv3 /-0.992063492063492d-03/ ! -1d0/1008d0
@@ -274,7 +277,7 @@ c for v_{+}, 0=<z<1, phi_j=y^{5/2}*p_j(y),phi_j'=y*p_{j1}(y),y=zeta^2
       data adz4 / 0.838616071428571d+00/ ! 3757d0/4480d0
       data adz5 /-0.172656250000000d+01/ ! -221d0/128d0
       data adz6 / 0.959201388888889d+00/ ! 1105d0/1152d0
- 
+
       data aev1 / 0.162880964840149d-02/ ! 204268d0/125409375d0
       data aev2 /-0.529100529100529d-03/ ! -1d0/1890d0
       data aev3 /-0.967261904761905d-02/ ! -13d0/1344d0
@@ -290,7 +293,7 @@ c for v_{+}, 0=<z<1, phi_j=y^{5/2}*p_j(y),phi_j'=y*p_{j1}(y),y=zeta^2
       data aez4 /-0.162790178571429d+02/ ! -7293d0/448d0
       data aez5 / 0.207187500000000d+02/ ! 663d0/32d0
       data aez6 /-0.863281250000000d+01/ ! -1105d0/128d0
- 
+
       y=z*z
       if(z.gt.zlim) goto 100
       call darthm(z,z1,9)
@@ -351,7 +354,7 @@ c for v_{+}, 0=<z<1, phi_j=y^{5/2}*p_j(y),phi_j'=y*p_{j1}(y),y=zeta^2
      ,yr*(aez1+yr*(aez2+yr*(aez3+yr*(aez4+yr*(aez5+yr*aez6)))))
       return
       end
- 
+
 c programm calculates functions phi_1(v) and phi_2(v) and their derivati
 c for v_{-}, zeta>=0, phi_j=y^{5/2}*p_j(y), phi_j'=y*p_{j1}(y), y=zeta^2
       subroutine ph01tg(z,v,phi10g,phi11g,phi20g,phi21g)
@@ -359,12 +362,12 @@ c for v_{-}, zeta>=0, phi_j=y^{5/2}*p_j(y), phi_j'=y*p_{j1}(y), y=zeta^2
       common /warg/ artgm(30)
       data c13 /0.3333333333333333d0/
       data zlim /0.9d0/
- 
+
       data aa1 / 0.438095238095238d-02/ ! 23/5250
       data aa2 / 0.612244897959184d-02/ ! 3/490
       data aa3 / 0.416666666666667d-01/ ! 1/24
       data aa4 /-0.568181818181818d-01/ ! -5/88
- 
+
       data ab10 /-0.131428571428571d-01/  ! -23/1750
       data ab11 /0.457142857142857d-02/  ! 4/875
       data ab20 /-0.183673469387755d-01/  ! -9/490
@@ -372,7 +375,7 @@ c for v_{-}, zeta>=0, phi_j=y^{5/2}*p_j(y), phi_j'=y*p_{j1}(y), y=zeta^2
       data ab30 /-0.125000000000000d+00/  ! -1/8
       data ab31 /-0.250000000000000d+00/  ! -1/4
       data ab40 / 0.170454545454545d+00/  ! 15/88
- 
+
       data ad10 / 0.789051184492001d-02/ ! 5224793159/662161500000
       data ad11 / 0.451342199750363d-03/ ! 24905119/55180125000
       data ad12 /-0.625772395405049d-03/ ! -3139109/5016375000
@@ -393,7 +396,7 @@ c for v_{-}, zeta>=0, phi_j=y^{5/2}*p_j(y), phi_j'=y*p_{j1}(y), y=zeta^2
       data ad62 / 0.345312500000000d+00/ ! 221/640
       data ad70 /-0.192248774509804d+00/ ! -1255/6528
       data ad71 /-0.169270833333333d+00/ ! -65/384
- 
+
       data ae10 /-0.710146066042801d-01/ ! -5224793159/73573500000
       data ae11 /-0.430123547201098d-02/ ! -79114237/18393375000
       data ae12 / 0.419736981385961d-02/ ! 2339509/557375000
@@ -421,19 +424,19 @@ c for v_{-}, zeta>=0, phi_j=y^{5/2}*p_j(y), phi_j'=y*p_{j1}(y), y=zeta^2
       data ae70 / 0.173023897058824d+01/ ! 3765/2176
       data ae71 / 0.159237132352941d+01/ ! 3465/2176
       data ae72 / 0.152343750000000d+01/ ! 195/128
- 
+
       data aav1 /-0.219047619047619d-01/ ! -23d0/1050d0
       data aav2 / 0.694444444444445d-01/ ! 5d0/72d0
       data aaz1 /-0.208333333333333d+00/ ! -5d0/24d0
       data aaz2 /-0.125000000000000d+00/ ! -1d0/8d0
       data aaz3 / 0.142857142857143d-01/ ! 1d0/70d0
- 
+
       data abv1 /-0.761904761904762d-02/ ! -4d0/525d0
       data abv2 /-0.694444444444445d-01/ ! -5d0/72d0
       data abz1 / 0.625000000000000d+00/ ! 5d0/8d0
       data abz2 / 0.750000000000000d+00/ ! 3d0/4d0
       data abz3 / 0.139285714285714d+00/ ! 39d0/280d0
- 
+
       data adv1 / 0.312886197702524d-02/ ! 3139109d0/1003275000d0
       data adv2 /-0.152116402116402d-02/ ! -23d0/15120d0
       data adv3 /-0.992063492063492d-03/ ! -1d0/1008d0
@@ -446,7 +449,7 @@ c for v_{-}, zeta>=0, phi_j=y^{5/2}*p_j(y), phi_j'=y*p_{j1}(y), y=zeta^2
       data adz4 / 0.838616071428571d+00/ ! 3757d0/4480d0
       data adz5 / 0.172656250000000d+01/ ! 221d0/128d0
       data adz6 / 0.959201388888889d+00/ ! 1105d0/1152d0
- 
+
       data aev1 / 0.162880964840149d-02/ ! 204268d0/125409375d0
       data aev2 / 0.529100529100529d-03/ ! 1d0/1890d0
       data aev3 /-0.967261904761905d-02/ ! -13d0/1344d0
@@ -462,7 +465,7 @@ c for v_{-}, zeta>=0, phi_j=y^{5/2}*p_j(y), phi_j'=y*p_{j1}(y), y=zeta^2
       data aez4 /-0.162790178571429d+02/ ! -7293d0/448d0
       data aez5 /-0.207187500000000d+02/ ! -663d0/32d0
       data aez6 /-0.863281250000000d+01/ ! -1105d0/128d0
- 
+
       y=z*z
       if(z.gt.zlim) goto 100
       call dartgm(z,9)
@@ -524,7 +527,7 @@ c for v_{-}, zeta>=0, phi_j=y^{5/2}*p_j(y), phi_j'=y*p_{j1}(y), y=zeta^2
      ,yr*(aez1+yr*(aez2+yr*(aez3+yr*(aez4+yr*(aez5+yr*aez6)))))
       return
       end
- 
+
 c programm calculates residuals of artg(x)/x series, v_0=artg(x)/x
 c v_m(x)=sum_{n=0}^infty (-1)^n(2m+3)/(2m+2n+3)x^m
 c v_m=1+(-1)^m(2m+3)/(2m+5)*x*v_{m+1}
@@ -575,7 +578,7 @@ c x>=0, x=x, artgm(m)=v_{m-1}
       return
  2003 format(1x,'negative x=',3x,d12.5)
       end
- 
+
 c programm calculates residuals of arth(x)/x series, v_0=arth(x)/x
 c v_m(x)=sum_{n=0}^infty (2m+3)/(2m+2n+3)x^m
 c v_m=1+(2m+3)/(2m+5)*x*v_{m+1}
@@ -627,7 +630,7 @@ c      common /ww/ eps,zlim,ylim
 c subroutine di13ml(x) calculates for given argument x from [-8,8]
 c the value of the Bessel function x^{1/3}I_{-1/3}(x) through its
 c expansion on the Chebyshev polinomials of even order
-c Luke, Special mathematical functions and their approximations, 
+c Luke, Special mathematical functions and their approximations,
 c ``MIR'', Moscow, 1980, 608 pp., table 9.18, p. 373
       function di13ml(x)
       implicit real*8(a-h,o-z)
@@ -655,11 +658,11 @@ c
       di13ml=dcheb0(a,w,18,2,nout)
       return
       end
- 
+
 c subroutine di13pl(x) calculates for given argument x from [-8,8]
 c the value of the Bessel function x^{-1/3}I_{1/3}(x) through its
 c expansion on the Chebyshev polinomials of even order
-c Luke, Special mathematical functions and their approximations, 
+c Luke, Special mathematical functions and their approximations,
 c ``MIR'', Moscow, 1980, 608 pp., table 9.18, p. 373
       function di13pl(x)
       implicit real*8(a-h,o-z)
@@ -691,7 +694,7 @@ c
 c subroutine dj13ml(x) calculates for given argument x from [-8,8]
 c the value of the Bessel function x^{1/3}J_{-1/3}(x) through its
 c expansion on the Chebyshev polinomials of even order
-c Luke, Special mathematical functions and their approximations, 
+c Luke, Special mathematical functions and their approximations,
 c ``MIR'', Moscow, 1980, 608 pp., table 9.12, p. 365
       function dj13ml(x)
       implicit real*8(a-h,o-z)
@@ -725,7 +728,7 @@ c
 c subroutine dj13pl(x) calculates for given argument x from [-8,8]
 c the value of the Bessel function x^{-1/3}J_{1/3}(x) through its
 c expansion on the Chebyshev polinomials of even order
-c Luke, Special mathematical functions and their approximations, 
+c Luke, Special mathematical functions and their approximations,
 c ``MIR'', Moscow, 1980, 608 pp., table 9.12, p. 365
       function dj13pl(x)
       implicit real*8(a-h,o-z)
@@ -758,7 +761,7 @@ c
 c subroutine dk13gs(x) calculates for given argument x>=5
 c the value of the Bessel function exp(x)*sqrt(2*x/pi)K_{1/3}(x)
 c through its expansion on the Chebyshev displased polinomials
-c Luke, Special mathematical functions and their approximations, 
+c Luke, Special mathematical functions and their approximations,
 c ``MIR'', Moscow, 1980, 608 pp., table 9.18, p. 374
       function dk13gs(x)
       implicit real*8(a-h,o-z)
@@ -791,7 +794,7 @@ c the combinations of values of the Bessel functions
 c namely the real yjr and imaginary yji parts of the complex sum
 c (\pi x/2)^{1/2}[J_{1/3}(x)+i Y_{1/3}(x)]e^{-i(x-\pi/4-\pi\nu/2)}
 c through their expansions on the Chebyshev even polinomials
-c Luke, Special mathematical functions and their approximations, 
+c Luke, Special mathematical functions and their approximations,
 c ``MIR'', Moscow, 1980, 608 pp., table 9.12, p. 365
       subroutine yj13gs(x,yjr,yji)
       implicit real*8(a-h,o-z)
@@ -841,7 +844,7 @@ c
       yji=dcheb0(bi,w,21,0,nout)
       return
       end
- 
+
 c subprogram for calculation of gamma-function gamma(1+x) for real argum
 c and gamma(m+x)=(m-1+x)(m-2+x)...(1+x)gamma(1+x)
       function dgam(xx)
@@ -913,7 +916,7 @@ c  2  - even numbers,
 c  3  - displased
 c by using the Klenshoe summing algorithm
 c nout --- the number of the canal of messages of the program
-c Luke, Special mathematical functions and their approximations, 
+c Luke, Special mathematical functions and their approximations,
       function dcheb0(a,x,n,key,nout)
       implicit real*8 (a-h,o-z)
       dimension a(n)
@@ -926,7 +929,7 @@ c the reaction to negative number
     3 write(nout,1000)
       dcheb0=cmax
       ier=1
-c control the key 
+c control the key
     5 if((key.ge.0).and.(key.le.3)) goto 7
 c reaction to the erroneous value of the key
       write(nout,1001)
@@ -971,9 +974,9 @@ c subroutine calculates the function J_0(x) for given x
 
 c subroutine dj0l(x) calculates for given argument x <-8=<x=<8
 c the values of the Bessel function J_0(x)
-c the real yjr and imaginary yji parts of the complex sum                       
+c the real yjr and imaginary yji parts of the complex sum
 c through its expansion on the Chebyshev even polinomials
-c Luke, Special mathematical functions and their approximations, 
+c Luke, Special mathematical functions and their approximations,
 c ``MIR'', Moscow, 1980, 608 pp., table 9.1, p. 344
       function dj0l(x)
       implicit real*8(a-h,o-z)
@@ -1007,9 +1010,9 @@ c the values of the Bessel function:
 c dre0=Re([J_0(x) +i*Y_0(x)]*sqrt(pi*x/2)*exp(i*(pi/4-x))) and
 c dim0=Im([J_0(x)+i*Y(0,x)]*sqrt(pi*x/2)exp(i*(pi/4-x)))
 c through their expansions of the even Chebyshev polinomials
-c Luke, Special mathematical functions and their approximations, 
+c Luke, Special mathematical functions and their approximations,
 c ``MIR'', Moscow, 1980, 608 pp., table 9.1, p. 344
-c if re and im are found then the functions J_0(x) and 
+c if re and im are found then the functions J_0(x) and
 c with the formulae
 cJ_0(x)=sqrt(2/(pi*x))*[dre0*cos(pi/4-x)+dim0*sin( pi/4-x)],
 cY_0(x)=sqrt\(2/(pi*x))*[dim0*cos(pi/4-x )-dre0 * sin( pi/4-x )].
@@ -1062,7 +1065,7 @@ c the values of the Bessel function:
 c dre1=Re([J_1(x)+i Y_1(x)]sqrt(pi*x/2)exp(i(pi/4-x))) and
 c dim1=Im([J_0(x)+i Y(0,x)]sqrt(pi*x/2)exp(i(pi/4-x)))
 c through their expansions of the even Chebyshev polinomials
-c Luke, Special mathematical functions and their approximations, 
+c Luke, Special mathematical functions and their approximations,
 c ``MIR'', Moscow, 1980, 608 pp., table 9.2, p. 346
 c if dre1 and dim1 are found then the functions J_1(x) and Y_1(x)
 c can be calculated with the formulae
