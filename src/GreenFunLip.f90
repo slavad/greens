@@ -6,7 +6,7 @@
 ! n - the coeffisient which describes the evolution of viscosity in accretion disc with the radius
 ! t - time in units of viscous time scale at R=1.
 ! n_root - the number of roots which we use to get numerical solution.
-!== the number of points over the radial coordinate ==!
+! n_R - the number of points over the radial coordinate ==!
 !=====================================================================================================
 subroutine TestGreenFun01(R_in,R_out,R_,n,t,n_root,n_R)
 implicit none
