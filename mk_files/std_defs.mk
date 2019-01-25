@@ -1,4 +1,4 @@
-TARGET = cycl
+TARGET = green
 SRC_DIR = $(DIR_PREFIX)/src
 LIB_DIRF90 = $(DIR_PREFIX)/libf90
 LIB_DIRF77 = $(DIR_PREFIX)/libf77

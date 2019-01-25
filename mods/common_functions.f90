@@ -1,9 +1,3 @@
 module common_functions
-	implicit none
-	interface
-		function hello()
-			implicit none
-			integer hello
-		end function
-	end interface
+  implicit none
 end module common_functions
