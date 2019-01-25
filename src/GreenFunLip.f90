@@ -6,15 +6,15 @@
 ! n - the coeffisient which describes the evolution of viscosity in accretion disc with the radius
 ! t - time in units of viscous time scale at R=1.
 ! n_root - the number of roots which we use to get numerical solution.
+!== the number of points over the radial coordinate ==!
 !=====================================================================================================
-subroutine TestGreenFun01(R_in,R_out,R_,n,t,n_root)
+subroutine TestGreenFun01(R_in,R_out,R_,n,t,n_root,n_R)
 implicit none
 real*8,intent(in)::R_in,R_out,R_,n,t
 real*8::l,root,Sigma,Mdot,R,dR
 dimension root(n_root)
 integer,intent(in)::n_root
 integer::n_R
-  n_R=200   !== the number of points over the radial coordinate ==!
   dR=(R_out-R_in)/(n_R-1)
   l=1.d0/(4.d0-2*n)
   call rootsLipunova(root,n_root,l,(R_in/R_out)**(1.d0-n/2.d0),1.d0)
@@ -113,7 +113,7 @@ end subroutine rootsLipunova
 ! R_in - inner radius, R_out - outher radius
 ! n - power describing kinematic viscosity
 ! k_i(num) - array with the roots of Lipunova's equation
-! num - the number of roots which we use. 
+! num - the number of roots which we use.
 ! tv_in - time-scale in units of viscous time at R=1
 !!!!!! still numerical differentiation!!!!!
 !================================================================================================
