@@ -7,6 +7,9 @@ include mk_files/common.mk
 $(TARGET): Makefile
 	cd $(BUILD_DIR) && make
 
+wrapper: Makefile
+	cd $(BUILD_DIR) && make wrapper
+
 .PHONY: clean
 
 clean:

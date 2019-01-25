@@ -4,6 +4,7 @@ LIB_DIRF90 = $(DIR_PREFIX)/libf90
 LIB_DIRF77 = $(DIR_PREFIX)/libf77
 MAKES_DIR = $(DIR_PREFIX)/mk_files
 BUILD_DIR = $(DIR_PREFIX)/build
+FILE_TO_WRAP= $(SRC_DIR)/GreenFunLip.f90
 
 FF = gfortran-mp-8
 FC = $(FF)
