@@ -7,6 +7,8 @@ include ../mk_files/common.mk
 $(TARGET): $(LIB_OBJF90) $(LIB_OBJF77) $(SRC_OBJ) $(MAKES)
 	$(FF) $(LFLAGS) $(SRC_OBJ) $(MOD_OBJS) $(LIB_OBJF90) $(LIB_OBJF77) -o $(TARGET)
 
+wrapper_objs: $(SETUP_PY) $(SRC_OBJ_FOR_PY) $(LIB_OBJF90) $(LIB_OBJF77) $(MAKES)
+
 .PHONY: clean
 
 clean:

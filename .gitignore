@@ -5,3 +5,5 @@ build/lib.*
 build/temp.*
 build/greens
 temp
+*.so
+*.dSYM
