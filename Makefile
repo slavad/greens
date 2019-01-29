@@ -8,10 +8,12 @@ $(TARGET): Makefile
 	cd $(BUILD_DIR) && make
 
 wrapper: $(SETUP_PY) $(SRC_OBJ_FOR_PY) $(LIB_OBJF90) $(LIB_OBJF77) $(MAKES) Makefile
-	python $(SETUP_PY) build_ext --link-objects="$(SRC_OBJ_FOR_PY) $(LIB_OBJF90) $(LIB_OBJF77)"
+	python $(SETUP_PY) build_ext --inplace --link-objects="$(SRC_OBJ_FOR_PY) $(LIB_OBJF90) $(LIB_OBJF77)"
 
 .PHONY: clean
 
 clean:
 	cd $(BUILD_DIR) && make clean
+	rm -f *.so
+	rm -rf *.dSYM
 

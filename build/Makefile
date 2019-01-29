@@ -12,7 +12,7 @@ $(TARGET): $(LIB_OBJF90) $(LIB_OBJF77) $(SRC_OBJ) $(MAKES)
 clean:
 	rm -f *.o
 	rm -f *.mod
-	rm -rf $(TARGET)
+	rm -f $(TARGET)
 	rm -rf src.*
 	rm -rf temp.*
 	rm -rf lib.*
