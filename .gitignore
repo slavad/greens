@@ -1,5 +1,7 @@
 build/*.o
 build/*.mod
 build/src.*
+build/lib.*
+build/temp.*
 build/greens
 temp
