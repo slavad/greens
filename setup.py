@@ -33,12 +33,7 @@ from numpy.distutils.core import Extension
 
 ext1 = Extension(name = 'greens',
     sources = [
-        'libf77/mf_DIN_djmuz.f',
-        'libf90/lib_specfun.f90',
-        'src/green.f90',
-        'src/GreenFunLip.f90',
-        'src/mf_BesselMod1.f90',
-        'src/mf_c.f90'
+        'src/GreenFunLip.f90'
     ]
 )
 
