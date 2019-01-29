@@ -31,7 +31,7 @@ setup(
 
 from numpy.distutils.core import Extension
 
-ext1 = Extension(name = 'djmuz',
+ext1 = Extension(name = 'greens',
     sources = [
         'libf77/mf_DIN_djmuz.f',
         'libf90/lib_specfun.f90',
