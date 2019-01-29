@@ -13,16 +13,36 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/slavad/py-series-clean',
-    author='Alexander Mushtukov,Viacheslav Dushin',
+    author='Alexander Mushtukov, Viacheslav Dushin',
     keywords="Green's functions",
     packages=find_packages(),
     classifiers=[
         #TODO: test with other versions
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Fortran :: 77',
+        'Programming Language :: Fortran :: 90',
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: MIT License'
     ],
     install_requires=[
        'numpy>=1.15.0<2.0.0'
     ]
+)
+
+from numpy.distutils.core import Extension
+
+ext1 = Extension(name = 'djmuz',
+    sources = [
+        'libf77/mf_DIN_djmuz.f',
+        'libf90/lib_specfun.f90',
+        'src/green.f90',
+        'src/GreenFunLip.f90',
+        'src/mf_BesselMod1.f90',
+        'src/mf_c.f90'
+    ]
+)
+
+from numpy.distutils.core import setup
+setup(name = 'py-greens-functions.flib',
+    ext_modules = [ext1]
 )
