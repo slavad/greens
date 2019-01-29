@@ -14,4 +14,6 @@ clean:
 	rm -f *.mod
 	rm -rf $(TARGET)
 	rm -rf src.*
+	rm -rf temp.*
+	rm -rf lib.*
 
