@@ -9,3 +9,5 @@ src/*wrappers.f
 src/*module.c
 *.so
 *.dSYM
+*.egg-info
+__pycache__
