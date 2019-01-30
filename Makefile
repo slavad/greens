@@ -4,8 +4,8 @@ target: Makefile
 .PHONY: clean
 
 clean:
-	rm -f *.so
-	rm -rf *.dSYM
+	rm -f greens/*.so
+	rm -rf greens/*.dSYM
 	rm -f src/*module.c
 	rm -rf src/*wrappers.f
 	rm -f  build/*.o

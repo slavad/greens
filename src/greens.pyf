@@ -1,7 +1,7 @@
 !    -*- f90 -*-
 ! Note: the context of this file is case sensitive.
 
-python module greens ! in
+python module raw_functions ! in
     interface  ! in :greens
         subroutine testgreenfun01(r_in,r_out,r_,n,t,n_root,n_r) ! in :greens:src/GreenFunLip.f90
             real*8 intent(in) :: r_in
@@ -70,7 +70,7 @@ python module greens ! in
             real*8 :: greenlipdicsmass
         end function greenlipdicsmass
     end interface
-end python module greens
+end python module raw_functions
 
 ! This file was auto-generated with f2py (version:2).
 ! See http://cens.ioc.ee/projects/f2py2e/

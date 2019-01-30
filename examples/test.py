@@ -1,4 +1,4 @@
-import greens
+import greens.functions as gf
 import pdb
 import numpy as np
 
@@ -7,11 +7,11 @@ def test_green_fun_01(R_in,R_out,R_,n,t,n_root,n_R):
     l=1.0/(4.0-2*n)
     x_out = 1.0
     x_in = (R_in/R_out)**(1.0-n/2.0)
-    root = greens.rootslipunova(n_root,l,x_in,x_out)
+    root = gf.rootslipunova(n_root,l,x_in,x_out)
     R=R_in
     while R <= R_out:
-        Sigma,Mdot = greens.greenlip(R,R_,t,R_in,R_out,n,root, root.shape[0])
-        print(R,Sigma, Mdot)
+        Sigma,Mdot = gf.greenlip(R,R_,t,R_in,R_out,n,root)
+        print("%.16e	%.16e	%.16e" % (R, Sigma, Mdot))
         R=R+dR
 
 def main():
@@ -23,6 +23,6 @@ def main():
     n_root = 2000
     n_R = 200
     test_green_fun_01(R_in,R_out,R_,n,t,n_root,n_R)
-    #greens.testgreenfun01(R_in,R_out,R_,n,t,n_root,n_R)
+    gf.testgreenfun01(R_in,R_out,R_,n,t,n_root,n_R)
 
 main()
