@@ -19,7 +19,7 @@ Now you can build the native extension: cd to the dir of the package and run `ma
 
 
 To run example:
-  1. ``export PYTHONPATH=`pwd` `` -- run it only once after you open the terminal window
+  1. ``export PYTHONPATH=`pwd` `` -- run it only once after you open the terminal window. It makes Python too look packages in the current directory.
   2. `python examples/test.py` to run the examples
 
 
