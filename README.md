@@ -11,7 +11,9 @@ First of all you must have gfortran installed. If you installed it via `macports
   1. `port select --list gcc` to see the list of available gcc versions
   2. `sudo port select --set gcc mp-gcc8` to select `mp-gcc8` for example
 
-Next install Python. This package was tested under 3.6.5. You can use `pyenv` to install the version you need: https://github.com/pyenv/pyenv
+Next install Python and `numpy` (this package was tested under 3.6.5).
+1. Use `pyenv` to install the version you need: https://github.com/pyenv/pyenv
+2. cd to the package dir and run `pip install numpy` to install `numpy`
 
 Now you can build the native extension: cd to the dir of the package and run `make` to build, `make clean` to clean or `make rebuild` to rebuild.
 
