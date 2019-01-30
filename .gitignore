@@ -5,5 +5,7 @@ build/lib.*
 build/temp.*
 build/greens
 temp
+src/*wrappers.f
+src/*module.c
 *.so
 *.dSYM
