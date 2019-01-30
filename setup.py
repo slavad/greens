@@ -9,7 +9,7 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-ext1 = Extension(name = 'greens.raw_functions',
+ext1 = Extension(name = 'greens.native_functions',
     sources = [
         'src/GreenFunLip.f90',
         'src/greens.pyf',

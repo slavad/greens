@@ -3,6 +3,8 @@ target: Makefile
 
 .PHONY: clean
 
+rebuild: clean target
+
 clean:
 	rm -f greens/*.so
 	rm -rf greens/*.dSYM
