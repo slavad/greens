@@ -12,13 +12,16 @@ python module greens ! in
             integer intent(in) :: n_root
             integer :: n_r
         end subroutine testgreenfun01
+
         subroutine rootslipunova(root,n,l,x_in,x_out) ! in :greens:src/GreenFunLip.f90
-            real*8 dimension(n) :: root
-            integer, optional,intent(in),check(len(root)>=n),depend(root) :: n=len(root)
+            real*8 dimension(n),intent(out),depend(n) :: root
+            integer intent(in) :: n
             real*8 intent(in) :: l
             real*8 intent(in) :: x_in
             real*8 intent(in) :: x_out
         end subroutine rootslipunova
+
+
         subroutine greenlip(r,r_,tv_in,r_in,r_out,n,k_i,num,sigma,mdot) ! in :greens:src/GreenFunLip.f90
             real*8 intent(in) :: r
             real*8 intent(in) :: r_
@@ -26,11 +29,12 @@ python module greens ! in
             real*8 intent(in) :: r_in
             real*8 intent(in) :: r_out
             real*8 intent(in) :: n
-            real*8 dimension(num) :: k_i
-            integer, optional,check(len(k_i)>=num),depend(k_i) :: num=len(k_i)
-            real*8 :: sigma
-            real*8 :: mdot
+            real*8 dimension(num),intent(in),depend(num) :: k_i
+            integer intent(in), depend(k_i) :: num
+            real*8 intent(out) :: sigma
+            real*8 intent(out) :: mdot
         end subroutine greenlip
+
         function greenlip_f2(r,r_,fv_in,r_in,r_out,n,k_i,num) ! in :greens:src/GreenFunLip.f90
             real*8 intent(in) :: r
             real*8 intent(in) :: r_
@@ -42,6 +46,7 @@ python module greens ! in
             integer, optional,check(len(k_i)>=num),depend(k_i) :: num=len(k_i)
             complex*16 :: greenlip_f2
         end function greenlip_f2
+
         function greenlip_f(r,r_,fv_in,r_in,r_out,n,k_i,num) ! in :greens:src/GreenFunLip.f90
             real*8 intent(in) :: r
             real*8 intent(in) :: r_
@@ -53,6 +58,7 @@ python module greens ! in
             integer, optional,check(len(k_i)>=num),depend(k_i) :: num=len(k_i)
             complex*16 :: greenlip_f
         end function greenlip_f
+
         function greenlipdicsmass(r_,t,r_in,r_out,n,k_i,num) ! in :greens:src/GreenFunLip.f90
             real*8 intent(in) :: r_
             real*8 intent(in) :: t

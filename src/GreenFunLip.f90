@@ -11,13 +11,15 @@
 subroutine TestGreenFun01(R_in,R_out,R_,n,t,n_root,n_R)
 implicit none
 real*8,intent(in)::R_in,R_out,R_,n,t
-real*8::l,root,Sigma,Mdot,R,dR
+real*8::l,root,Sigma,Mdot,R,dR, x_in, x_out
 dimension root(n_root)
 integer,intent(in)::n_root
 integer::n_R
   dR=(R_out-R_in)/(n_R-1)
   l=1.d0/(4.d0-2*n)
-  call rootsLipunova(root,n_root,l,(R_in/R_out)**(1.d0-n/2.d0),1.d0)
+  x_out = 1.d0
+  x_in = (R_in/R_out)**(1.d0-n/2.d0)
+  call rootsLipunova(root,n_root,l,x_in,x_out)
   R=R_in
   do while(R.le.R_out)
     call GreenLip(R,R_,t,R_in,R_out,n,root,n_root,Sigma,Mdot)
