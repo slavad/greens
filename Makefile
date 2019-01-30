@@ -1,4 +1,4 @@
-wrapper: Makefile
+target: Makefile
 	python setup.py build_ext --inplace
 
 .PHONY: clean

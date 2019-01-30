@@ -15,8 +15,8 @@ ext1 = Extension(name = 'greens',
         'src/greens.pyf',
         'src/mf_BesselMod1.f90',
         'src/mf_c.f90',
-        'libf90/lib_specfun.f90',
-        'libf77/mf_DIN_djmuz.f'
+        'src/lib_specfun.f90',
+        'src/mf_DIN_djmuz.f'
     ]
 )
 if __name__ == "__main__":
